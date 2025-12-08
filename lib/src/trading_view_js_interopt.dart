@@ -1,5 +1,5 @@
 class TradingViewJsInteropt {
-  static String getTradingViewWCode({required String json}) {
+  static String getTradingViewWCode({required Map<String, Object> json}) {
     return '''
       <div class="tradingview-widget-container" style="height:100%;width:100%">
         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
@@ -9,7 +9,7 @@ class TradingViewJsInteropt {
           </a>
         </div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-        
+          $json
         </script>
       </div>
     ''';

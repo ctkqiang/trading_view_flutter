@@ -1,6 +1,10 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:trading_view_flutter/src/model/theme.dart';
 import 'package:trading_view_flutter/src/model/trading_view_data.dart';
+import 'package:trading_view_flutter/src/trading_view_js_interopt.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class TradingViewEmbedder {
@@ -12,7 +16,15 @@ class TradingViewEmbedder {
   late WebViewController controller;
 
   @mustCallSuper
-  Future<void> onLoad({required TradingViewData tradingViewData}) async {
+  Future<void> onLoad({
+    required TradingViewData tradingViewData,
+    void Function(int)? onProgress,
+    void Function(String)? onPageFinished,
+    void Function(HttpResponseError)? onHttpError,
+    void Function(WebResourceError)? onWebResourceError,
+    FutureOr<NavigationDecision> Function(NavigationRequest request)?
+    onNavigationRequest,
+  }) async {
     assert(tradingViewData.toJson().isNotEmpty, 'TradingViewData 不可为空');
 
     controller = WebViewController()
@@ -22,6 +34,25 @@ class TradingViewEmbedder {
             ? Colors.black
             : Colors.white,
       )
-      ..setNavigationDelegate(NavigationDelegate());
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: onProgress,
+          onPageFinished: onPageFinished,
+          onHttpError: onHttpError,
+          onWebResourceError: onWebResourceError,
+          onNavigationRequest: onNavigationRequest,
+        ),
+      )
+      ..loadRequest(
+        Uri.parse(
+          Uri.dataFromString(
+            TradingViewJsInteropt.getTradingViewWCode(
+              json: tradingViewData.toJson(),
+            ),
+            mimeType: 'text/html',
+            encoding: Encoding.getByName('utf-8'),
+          ).toString(),
+        ),
+      );
   }
 }
