@@ -1,7 +1,7 @@
 name: trading_view_flutter
 description: "A new Flutter package project."
 version: 0.0.1
-homepage:
+homepage:  https://github.com/ctkqiang/trading_view_flutter.git
 
 environment:
   sdk: ^3.9.2
@@ -17,12 +17,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0
+  mockito: ^5.4.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
-flutter:
+# flutter:
 
   # To add assets to your package, add an assets section, like this:
   # assets:

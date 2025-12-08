@@ -18,7 +18,7 @@ class TradingViewData {
   final bool? hideVolume;
   final String? supportHost;
 
-  const TradingViewData({
+  TradingViewData({
     required this.id,
     required this.symbol,
     this.autosize = true,
@@ -33,7 +33,7 @@ class TradingViewData {
     this.showCalendar = false,
     this.hideVolume = false,
     this.supportHost = Constant.tradingViewUrl,
-  });
+  }) : assert(symbol.isNotEmpty, 'symbol 不能为空');
 
   factory TradingViewData.fromJson(Map<String, dynamic> json) {
     return TradingViewData(
