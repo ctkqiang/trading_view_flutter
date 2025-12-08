@@ -1,6 +1,6 @@
 name: trading_view_flutter
-description: "A new Flutter package project."
-version: 0.0.1
+description: "一个高性能的 Flutter TradingView 图表集成库，提供完整的 TradingView 高级图表功能，支持股票、加密货币、外汇等多种金融产品的技术分析。"
+version: 0.0.2
 repository: https://github.com/ctkqiang/trading_view_flutter.git
 homepage:  https://github.com/ctkqiang/trading_view_flutter.git
 

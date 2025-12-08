@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:trading_view_flutter/src/model/trading_view_data.dart';
-import 'package:trading_view_flutter/src/trading_view_embedder.dart';
+import 'package:trading_view_flutter/trading_view_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-class TradingViewWidget extends StatefulWidget {
+class TradingViewLightChart extends StatefulWidget {
   final double width;
   final double height;
   final TradingViewData data;
 
-  TradingViewWidget({
+  TradingViewLightChart({
     super.key,
     this.width = 1200,
     this.height = 600,
@@ -16,10 +15,10 @@ class TradingViewWidget extends StatefulWidget {
   }) : assert(data.toJson().isNotEmpty, 'TradingViewData 不可为空');
 
   @override
-  State<TradingViewWidget> createState() => _TradingViewWidgetState();
+  State<TradingViewLightChart> createState() => _TradingViewLightChartState();
 }
 
-class _TradingViewWidgetState extends State<TradingViewWidget> {
+class _TradingViewLightChartState extends State<TradingViewLightChart> {
   final tradingViewEmbedder = TradingViewEmbedder.instance;
 
   @override

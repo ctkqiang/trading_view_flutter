@@ -30,6 +30,7 @@ class TradingViewEmbedder {
 
     final tradingViewWCode = TradingViewJsInteropt.getTradingViewWCode(
       json: tradingViewData.toJson(),
+      isLightWeightChart: tradingViewData.isLightWeightChart,
     );
 
     if (kDebugMode) {

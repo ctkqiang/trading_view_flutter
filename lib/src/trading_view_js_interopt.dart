@@ -6,22 +6,23 @@ import 'package:logger/logger.dart';
 class TradingViewJsInteropt {
   static String getTradingViewWCode({
     required Map<String, Object> json,
-    bool? isLightWeightChart = true,
+    bool? isLightWeightChart = false,
     String? footer = '',
   }) {
     final logger = Logger();
-    final url = (isLightWeightChart!)
-        ? 'https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js'
-        : 'https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js';
 
     if (kDebugMode) {
-      logger.d('TradingViewWCode: $url');
       logger.d('TradingViewWCode: $json');
     }
 
     final jsonString = jsonEncode(json);
 
-    return '''
+    if (isLightWeightChart!) {
+      return '''
+
+      ''';
+    } else {
+      return '''
       <div class="tradingview-widget-container" style="height:100%;width:100%">
         <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
         <div class="tradingview-widget-copyright">
@@ -34,5 +35,6 @@ class TradingViewJsInteropt {
         </script>
       </div>
     ''';
+    }
   }
 }

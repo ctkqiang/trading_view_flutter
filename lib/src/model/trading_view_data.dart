@@ -17,6 +17,7 @@ class TradingViewData {
   final bool? showCalendar;
   final bool? hideVolume;
   final String? supportHost;
+  final bool? isLightWeightChart;
 
   TradingViewData({
     required this.id,
@@ -33,6 +34,7 @@ class TradingViewData {
     this.showCalendar = false,
     this.hideVolume = false,
     this.supportHost = Constant.tradingViewUrl,
+    this.isLightWeightChart = false,
   }) : assert(symbol.isNotEmpty, 'symbol 不能为空');
 
   factory TradingViewData.fromJson(Map<String, dynamic> json) {
@@ -51,6 +53,7 @@ class TradingViewData {
       showCalendar: json['show_calendar'],
       hideVolume: json['hide_volume'],
       supportHost: json['support_host'],
+      isLightWeightChart: json['isLightWeightChart'],
     );
   }
 
