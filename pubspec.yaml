@@ -1,6 +1,7 @@
 name: trading_view_flutter
 description: "A new Flutter package project."
 version: 0.0.1
+repository: https://github.com/ctkqiang/trading_view_flutter.git
 homepage:  https://github.com/ctkqiang/trading_view_flutter.git
 
 environment:
