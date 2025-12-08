@@ -4,6 +4,7 @@ import 'package:trading_view_flutter/src/model/chart_version.dart';
 import 'package:trading_view_flutter/src/model/constant.dart';
 import 'package:trading_view_flutter/src/model/interval.dart';
 import 'package:trading_view_flutter/src/model/theme.dart';
+import 'package:trading_view_flutter/src/model/trading_view_chart_data.dart';
 
 class TradingViewData {
   final int? id;
@@ -23,7 +24,7 @@ class TradingViewData {
   final bool? isLightWeightChart;
   final ChartVersion? chartVersion;
   final TradingViewChartType? tradingViewChartType;
-  final List<ChartValue>? chartValue; // required for light weight chart
+  final List<TradingViewChartData>? chartValue;
 
   // TODO add indicator
 
