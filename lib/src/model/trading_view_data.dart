@@ -1,9 +1,10 @@
+import 'package:trading_view_flutter/src/model/chart_version.dart';
 import 'package:trading_view_flutter/src/model/constant.dart';
 import 'package:trading_view_flutter/src/model/interval.dart';
 import 'package:trading_view_flutter/src/model/theme.dart';
 
 class TradingViewData {
-  final int id;
+  final int? id;
   final String symbol;
   final bool autosize;
   final TradingViewInterval? interval;
@@ -18,11 +19,12 @@ class TradingViewData {
   final bool? hideVolume;
   final String? supportHost;
   final bool? isLightWeightChart;
+  final ChartVersion? chartVersion;
 
   // TODO add indicator
 
   TradingViewData({
-    required this.id,
+    this.id,
     required this.symbol,
     this.autosize = true,
     this.interval = TradingViewInterval.D,
@@ -37,6 +39,7 @@ class TradingViewData {
     this.hideVolume = false,
     this.supportHost = Constant.tradingViewUrl,
     this.isLightWeightChart = false,
+    this.chartVersion = ChartVersion.china,
   }) : assert(symbol.isNotEmpty, 'symbol 不能为空');
 
   factory TradingViewData.fromJson(Map<String, dynamic> json) {
@@ -61,7 +64,7 @@ class TradingViewData {
 
   Map<String, Object> toJson() {
     return {
-      'id': id,
+      'id': id ?? 0,
       'symbol': symbol,
       'autosize': autosize,
       'interval': interval?.name ?? TradingViewInterval.D.name,
