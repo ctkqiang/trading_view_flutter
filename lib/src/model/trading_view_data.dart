@@ -65,7 +65,7 @@ class TradingViewData {
       hideVolume: json['hide_volume'],
       supportHost: json['support_host'],
       isLightWeightChart: json['isLightWeightChart'],
-      chartValue: json['chartValue'],
+      chartValue: (json['chartValue']),
     );
   }
 

@@ -27,7 +27,7 @@ class TradingViewJsInteropt {
             const chart = LightweightCharts.createChart(document.body);
             const lineSeries = chart.addSeries(LightweightCharts.LineSeries);
 
-
+            lineSeries.setData(${tradingViewData.chartValue};
           </script>
         </div>
         ''';
