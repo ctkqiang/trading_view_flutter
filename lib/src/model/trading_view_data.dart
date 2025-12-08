@@ -1,4 +1,5 @@
 import 'package:trading_view_flutter/src/model/chart_type.dart';
+import 'package:trading_view_flutter/src/model/chart_value.dart';
 import 'package:trading_view_flutter/src/model/chart_version.dart';
 import 'package:trading_view_flutter/src/model/constant.dart';
 import 'package:trading_view_flutter/src/model/interval.dart';
@@ -22,6 +23,7 @@ class TradingViewData {
   final bool? isLightWeightChart;
   final ChartVersion? chartVersion;
   final TradingViewChartType? tradingViewChartType;
+  final List<ChartValue>? chartValue; // required for light weight chart
 
   // TODO add indicator
 
@@ -43,6 +45,7 @@ class TradingViewData {
     this.isLightWeightChart = false,
     this.chartVersion = ChartVersion.china,
     this.tradingViewChartType = TradingViewChartType.candlestick,
+    this.chartValue,
   }) : assert(symbol.isNotEmpty, 'symbol 不能为空');
 
   factory TradingViewData.fromJson(Map<String, dynamic> json) {
@@ -62,6 +65,7 @@ class TradingViewData {
       hideVolume: json['hide_volume'],
       supportHost: json['support_host'],
       isLightWeightChart: json['isLightWeightChart'],
+      chartValue: json['chartValue'],
     );
   }
 
