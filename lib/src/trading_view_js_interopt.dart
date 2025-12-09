@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
+import 'package:trading_view_flutter/src/model/chart_region.dart';
 import 'package:trading_view_flutter/trading_view_flutter.dart';
 
 class TradingViewJsInteropt {
@@ -27,7 +28,15 @@ class TradingViewJsInteropt {
       if (tradingViewData.tradingViewChartType ==
           TradingViewChartType.candlestick) {
         return '''
-          <div>
+          <div style="
+              width:100%; 
+              height:420px; 
+              border: 2px solid #888;  
+              border-radius: 8px;      
+              padding: 8px;           
+              box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+              background: ${tradingViewData.theme == TradingViewTheme.light ? 'white' : 'black'};
+            ">
             <div id="symbol" style="font-size:16px; font-weight:bold; margin-bottom:4px;">
               ${tradingViewData.symbol}
             </div>
@@ -58,11 +67,11 @@ class TradingViewJsInteropt {
                       );
 
                       const candlestickSeries = chart.addCandlestickSeries({
-                        upColor: '#26a69a',
-                        downColor: '#ef5350',
+                        upColor: '${tradingViewData.chartRegion == ChartRegion.china ? '#ef5350' : '#26a69a'}',
+                        downColor: '${tradingViewData.chartRegion == ChartRegion.china ? '#26a69a' : '#ef5350'}',
                         borderVisible: false,
-                        wickUpColor: '#26a69a',
-                        wickDownColor: '#ef5350'
+                        wickUpColor: '${tradingViewData.chartRegion == ChartRegion.china ? '#ef5350' : '#26a69a'}',
+                        wickDownColor: '${tradingViewData.chartRegion == ChartRegion.china ? '#26a69a' : '#ef5350'}'
                       });
 
                       candlestickSeries.setData($chartDataJson);
@@ -71,6 +80,7 @@ class TradingViewJsInteropt {
                     }
                   }, 50);
                 };
+
                 document.head.appendChild(script);
               })();
             </script>

@@ -89,9 +89,9 @@ class TradingViewExample extends StatelessWidget {
       ),
       TradingViewChartData(
         time: DateTime(2025, 12, 31),
-        open: 189.87,
+        open: 50.87,
         high: 114.69,
-        low: 85.66,
+        low: 30.66,
         close: 111.26,
       ),
     ];
