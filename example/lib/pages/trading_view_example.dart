@@ -92,7 +92,7 @@ class _TradingViewExampleState extends State<TradingViewExample> {
       autosize: true,
       interval: TradingViewInterval.month,
       timezone: 'Asia/Shanghai',
-      theme: _theme, // 使用状态变量
+      theme: _theme,
       style: '1',
       locale: TradingLocale.chinese.toLocaleString(),
       hideTopToolbar: true,
