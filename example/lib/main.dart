@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:trading_view_flutter/trading_view_flutter.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      systemNavigationBarContrastEnforced: false,
+      systemNavigationBarColor: Colors.transparent,
+      systemStatusBarContrastEnforced: false,
+      systemNavigationBarIconBrightness: Brightness.dark,
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
+
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
   runApp(TradingViewExample());
 }
 
@@ -50,7 +63,7 @@ class TradingViewExample extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          title: const Text('TradingView Example'),
+          title: const Text('TradingView 示例'),
           backgroundColor: Colors.white,
         ),
         body: Column(

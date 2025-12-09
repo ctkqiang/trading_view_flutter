@@ -1,5 +1,4 @@
 import 'package:trading_view_flutter/src/model/chart_type.dart';
-import 'package:trading_view_flutter/src/model/chart_value.dart';
 import 'package:trading_view_flutter/src/model/chart_region.dart';
 import 'package:trading_view_flutter/src/model/constant.dart';
 import 'package:trading_view_flutter/src/model/interval.dart';
@@ -34,6 +33,7 @@ class TradingViewData {
   final bool? showCalendar;
   final bool? hideVolume;
   final bool? showDrawingToolBar;
+  final bool? showComprehennsiveDetails;
   final String? supportHost;
   final bool? isLightWeightChart;
   final ChartRegion? chartRegion;
@@ -57,6 +57,7 @@ class TradingViewData {
     this.showCalendar = false,
     this.hideVolume = false,
     this.showDrawingToolBar = false,
+    this.showComprehennsiveDetails = false,
     this.supportHost = Constant.tradingViewUrl,
     this.isLightWeightChart = false,
     this.chartRegion = ChartRegion.china,
@@ -65,7 +66,14 @@ class TradingViewData {
   }) : assert(symbol.isNotEmpty, 'symbol 不能为空');
 
   factory TradingViewData.fromJson(Map<String, dynamic> json) {
-    return TradingViewData(
+    if (json['isLightWeightChart'] == true && json['chartValue'] == null) {
+      assert(
+        json['chartValue'].isNotEmpty,
+        'chartValue 不可为空，因为您将轻量级图表设置为 true',
+      );
+    }
+
+    TradingViewData data = TradingViewData(
       id: json['id'],
       symbol: json['symbol'],
       autosize: json['autosize'],
@@ -77,6 +85,7 @@ class TradingViewData {
       hideTopToolbar: json['hide_top_toolbar'],
       allowSymbolChange: json['allow_symbol_change'],
       saveImage: json['save_image'],
+      showComprehennsiveDetails: json['show_comprehensive_details'],
       showCalendar: json['show_calendar'],
       hideVolume: json['hide_volume'],
       supportHost: json['support_host'],
@@ -85,10 +94,12 @@ class TradingViewData {
       chartRegion: json['chartRegion'],
       showDrawingToolBar: json['showDrawingToolBar'],
     );
+
+    return data;
   }
 
   Map<String, Object> toJson() {
-    return {
+    Map<String, Object> data = {
       'id': id ?? 0,
       'symbol': symbol,
       'autosize': autosize,
@@ -100,11 +111,14 @@ class TradingViewData {
       'hide_top_toolbar': hideTopToolbar ?? false,
       'allow_symbol_change': allowSymbolChange ?? true,
       'save_image': saveImage ?? false,
+      'details': showComprehennsiveDetails ?? false,
       'show_calendar': showCalendar ?? false,
       'hide_volume': hideVolume ?? false,
       'support_host': supportHost ?? Constant.tradingViewUrl,
       'hide_side_toolbar': !showDrawingToolBar!,
     };
+
+    return data;
   }
 
   @override

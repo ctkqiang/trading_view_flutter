@@ -8,3 +8,5 @@ export 'src/model/theme.dart';
 export 'src/model/constant.dart';
 export 'src/model/trading_view_data.dart';
 export 'src/model/interval.dart';
+
+/// @docImport ‘src/model/trading_view_chart_data.dart’
