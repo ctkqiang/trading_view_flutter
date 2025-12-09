@@ -1,8 +1,7 @@
+import 'package:example/pages/trading_view_example.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:trading_view_flutter/trading_view_flutter.dart';
-
-import '../lib/main.dart' show TradingViewExample;
 
 void main() {
   group('TradingViewExample 部件测试', () {
