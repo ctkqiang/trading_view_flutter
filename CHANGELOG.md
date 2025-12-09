@@ -26,3 +26,13 @@
 `TradingViewWidget` 组件、`TradingViewEmbedder` 和 `TradingViewJsInteropt` 的详细说明和使用示例
 
 
+## [0.0.4]
+
+### Added
+- 添加文档
+
+### Changed
+- 详细说明 `lib` 目录结构和功能
+`TradingViewWidget` 组件、`TradingViewEmbedder` 和 `TradingViewJsInteropt` 的详细说明和使用示例
+
+

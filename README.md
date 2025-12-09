@@ -279,7 +279,7 @@ class LightChartExample extends StatelessWidget {
 
 ## 📚 API 文档
 
-本项目的补充技术文档、设计说明和深入教程均存放在 [doc 目录](./doc) 中。该目录是项目的核心知识库，旨在为开发者提供更全面的背景信息和使用指导。
+本项目的补充技术文档、设计说明和深入教程均存放在 [doc 目录](https://www.ctkqiang.xin/trading_view_flutter/doc/api/) 中。该目录是项目的核心知识库，旨在为开发者提供更全面的背景信息和使用指导。
 
 ### 主要功能
 - **架构设计**：存放系统架构图、模块关系图和核心流程说明。
