@@ -28,12 +28,10 @@ class TradingViewJsInteropt {
       if (tradingViewData.tradingViewChartType ==
           TradingViewChartType.candlestick) {
         return '''
-          <div style="
-              width:100%; 
-              height:420px; 
-              border: 2px solid #888;  
-              border-radius: 8px;      
-              padding: 8px;           
+          <div
+          class="tradingview-widget-container__widget" 
+            style="
+              border:  1px solid #888;  
               box-shadow: 0 2px 6px rgba(0,0,0,0.1);
               background: ${tradingViewData.theme == TradingViewTheme.light ? 'white' : 'black'};
             ">
@@ -41,13 +39,13 @@ class TradingViewJsInteropt {
               ${tradingViewData.symbol}
             </div>
 
-            <div id="container" style="width:100%; height:400px;"></div>
+            <div id="container" style="width:100%; height:250px;"></div>
 
             <script>
               (function() {
                 var script = document.createElement('script');
 
-                script.src = '${Constant.tradingLightChartWidgetUrl}';
+                script.src = '${Constant.tradingLightChartWidgetUrl}';1
                 script.onload = function() {
                   var checkReady = setInterval(function() {
 
