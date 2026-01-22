@@ -23,7 +23,9 @@
 
 
 ## 👨🏼‍💻 演示
-<video src="./demo/demo.mp4" alt="演示视频" width="200" height="450" controls></video>
+<p align="center">
+  <video src="./demo/demo.mp4" width="200" height="450" controls></video>
+</p>
 
 ## ✨ 功能特性
 
