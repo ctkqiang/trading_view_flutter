@@ -22,8 +22,8 @@
 - [📈 版本历史](#-版本历史)
 
 
-## 👨🏼‍💻 演示图片
-<img src="./demo/demo.jpg" alt="演示图片" width="200" height="450">
+## 👨🏼‍💻 演示
+<video src="./demo/demo.mp4" alt="演示视频" width="200" height="450" controls></video>
 
 ## ✨ 功能特性
 
