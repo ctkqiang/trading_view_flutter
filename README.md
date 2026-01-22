@@ -24,7 +24,9 @@
 
 ## 👨🏼‍💻 演示
 <p align="center">
-  <video src="./demo/demo.mp4" width="200" height="450" controls></video>
+  <a href="./demo/demo.mp4">
+    <img src="./demo/demo.jpg" width="200" height="450" alt="演示缩略图">
+  </a>
 </p>
 
 ## ✨ 功能特性
